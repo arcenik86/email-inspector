@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!--
+  Email Inspector v1.1.0 — Commands Function File
+  Required by the manifest for ribbon command execution.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Email Inspector Commands</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js" type="text/javascript"></script>
+  <script>
+    Office.onReady(function () {});
+    function quickInspect(event) { event.completed(); }
+    if (typeof Office !== "undefined") {
+      Office.actions = Office.actions || {};
+      Office.actions.associate = Office.actions.associate || function () {};
+    }
+  </script>
+</head>
+<body></body>
+</html>

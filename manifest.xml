@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+  Email Inspector v1.1.0 — Deployment Manifest
+
+  SETUP: Replace ALL instances of {{BASE_URL}} below with the HTTPS URL
+  where you hosted the files. For example:
+    https://yourtenant.sharepoint.com/sites/IT/EmailInspector
+    https://yourorg.github.io/email-inspector
+    https://yourstatic.azurewebsites.net
+
+  You can do this with find-and-replace in any text editor, or run:
+    PowerShell:  (Get-Content manifest.xml) -replace '\{\{BASE_URL\}\}','https://your-url-here' | Set-Content manifest.xml
+    Bash:        sed -i 's|{{BASE_URL}}|https://your-url-here|g' manifest.xml
+
+  Then deploy via Microsoft 365 Admin Center > Settings > Integrated Apps.
+-->
+<OfficeApp
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
+  xsi:type="MailApp">
+
+  <Id>e1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6</Id>
+  <Version>1.3.0</Version>
+  <ProviderName>Email Inspector</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Email Inspector"/>
+  <Description DefaultValue="Analyze email authentication (SPF, DKIM, DMARC, ARC) and detect suspicious indicators. A security tool and learning resource for end users."/>
+  <IconUrl DefaultValue="{{BASE_URL}}/icon-64.png"/>
+  <HighResolutionIconUrl DefaultValue="{{BASE_URL}}/icon-128.png"/>
+  <SupportUrl DefaultValue="{{BASE_URL}}/taskpane.html"/>
+
+  <AppDomains>
+    <AppDomain>{{BASE_URL}}</AppDomain>
+  </AppDomains>
+
+  <Hosts>
+    <Host Name="Mailbox"/>
+  </Hosts>
+
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.8"/>
+    </Sets>
+  </Requirements>
+
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="{{BASE_URL}}/taskpane.html"/>
+        <RequestedHeight>450</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+
+  <Permissions>ReadItem</Permissions>
+
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
+  </Rule>
+
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Requirements>
+      <bt:Sets DefaultMinVersion="1.8">
+        <bt:Set Name="Mailbox"/>
+      </bt:Sets>
+    </Requirements>
+
+    <Hosts>
+      <Host xsi:type="MailHost">
+        <DesktopFormFactor>
+          <FunctionFile resid="Commands.Url"/>
+
+          <ExtensionPoint xsi:type="MessageReadCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="EmailInspectorGroup">
+                <Label resid="GroupLabel"/>
+                <Control xsi:type="Button" id="InspectButton">
+                  <Label resid="InspectButtonLabel"/>
+                  <Supertip>
+                    <Title resid="InspectButtonLabel"/>
+                    <Description resid="InspectButtonDesc"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16"/>
+                    <bt:Image size="32" resid="Icon.32x32"/>
+                    <bt:Image size="80" resid="Icon.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="Taskpane.Url"/>
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon.16x16" DefaultValue="{{BASE_URL}}/icon-16.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="{{BASE_URL}}/icon-32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="{{BASE_URL}}/icon-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="Commands.Url" DefaultValue="{{BASE_URL}}/commands.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="{{BASE_URL}}/taskpane.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="GroupLabel" DefaultValue="Email Inspector"/>
+        <bt:String id="InspectButtonLabel" DefaultValue="Inspect Email"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="InspectButtonDesc" DefaultValue="Analyze this email for authentication (SPF, DKIM, DMARC, ARC), alignment, and suspicious indicators."/>
+      </bt:LongStrings>
+    </Resources>
+
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.8">
+          <bt:Set Name="Mailbox"/>
+        </bt:Sets>
+      </Requirements>
+
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+            <FunctionFile resid="Commands.Url"/>
+            <ExtensionPoint xsi:type="MessageReadCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="EmailInspectorGroup_v11">
+                  <Label resid="GroupLabel"/>
+                  <Control xsi:type="Button" id="InspectButton_v11">
+                    <Label resid="InspectButtonLabel"/>
+                    <Supertip>
+                      <Title resid="InspectButtonLabel"/>
+                      <Description resid="InspectButtonDesc"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon.16x16"/>
+                      <bt:Image size="32" resid="Icon.32x32"/>
+                      <bt:Image size="80" resid="Icon.80x80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="Taskpane.Url"/>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+
+      <Resources>
+        <bt:Images>
+          <bt:Image id="Icon.16x16" DefaultValue="{{BASE_URL}}/icon-16.png"/>
+          <bt:Image id="Icon.32x32" DefaultValue="{{BASE_URL}}/icon-32.png"/>
+          <bt:Image id="Icon.80x80" DefaultValue="{{BASE_URL}}/icon-80.png"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="Commands.Url" DefaultValue="{{BASE_URL}}/commands.html"/>
+          <bt:Url id="Taskpane.Url" DefaultValue="{{BASE_URL}}/taskpane.html"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="GroupLabel" DefaultValue="Email Inspector"/>
+          <bt:String id="InspectButtonLabel" DefaultValue="Inspect Email"/>
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="InspectButtonDesc" DefaultValue="Analyze this email for authentication (SPF, DKIM, DMARC, ARC), alignment, and suspicious indicators."/>
+        </bt:LongStrings>
+      </Resources>
+    </VersionOverrides>
+  </VersionOverrides>
+</OfficeApp>

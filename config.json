@@ -1,0 +1,30 @@
+{
+  "_comment": "Email Inspector v1.3.0 — Admin Configuration",
+  "_instructions": "Host this file alongside taskpane.html. All fields are optional — defaults are used for anything omitted.",
+
+  "orgName": "",
+  "reportPhishingUrl": "",
+  "reportPhishingLabel": "Report to IT Security",
+
+  "trustedDomains": [],
+
+  "scoringWeights": {
+    "pass": 0,
+    "info": 0,
+    "warn": 15,
+    "fail": 30,
+    "critical": 50
+  },
+
+  "branding": {
+    "accentColor": "",
+    "logoUrl": ""
+  },
+
+  "features": {
+    "showRawHeaders": true,
+    "showRoutingChain": true,
+    "showEducation": true,
+    "showTooltipTour": true
+  }
+}
