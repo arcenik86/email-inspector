@@ -2,7 +2,7 @@
 <!--
   Email Inspector v1.1.0 — Deployment Manifest
 
-  SETUP: Replace ALL instances of {{BASE_URL}} below with the HTTPS URL
+  SETUP: Replace ALL instances of https://arcenik86.github.io/email-inspector below with the HTTPS URL
   where you hosted the files. For example:
     https://yourtenant.sharepoint.com/sites/IT/EmailInspector
     https://yourorg.github.io/email-inspector
@@ -10,7 +10,7 @@
 
   You can do this with find-and-replace in any text editor, or run:
     PowerShell:  (Get-Content manifest.xml) -replace '\{\{BASE_URL\}\}','https://your-url-here' | Set-Content manifest.xml
-    Bash:        sed -i 's|{{BASE_URL}}|https://your-url-here|g' manifest.xml
+    Bash:        sed -i 's|https://arcenik86.github.io/email-inspector|https://your-url-here|g' manifest.xml
 
   Then deploy via Microsoft 365 Admin Center > Settings > Integrated Apps.
 -->
@@ -27,12 +27,12 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Email Inspector"/>
   <Description DefaultValue="Analyze email authentication (SPF, DKIM, DMARC, ARC) and detect suspicious indicators. A security tool and learning resource for end users."/>
-  <IconUrl DefaultValue="{{BASE_URL}}/icon-64.png"/>
-  <HighResolutionIconUrl DefaultValue="{{BASE_URL}}/icon-128.png"/>
-  <SupportUrl DefaultValue="{{BASE_URL}}/taskpane.html"/>
+  <IconUrl DefaultValue="https://arcenik86.github.io/email-inspector/icon-64.png"/>
+  <HighResolutionIconUrl DefaultValue="https://arcenik86.github.io/email-inspector/icon-128.png"/>
+  <SupportUrl DefaultValue="https://arcenik86.github.io/email-inspector/taskpane.html"/>
 
   <AppDomains>
-    <AppDomain>{{BASE_URL}}</AppDomain>
+    <AppDomain>https://arcenik86.github.io/email-inspector</AppDomain>
   </AppDomains>
 
   <Hosts>
@@ -48,7 +48,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="{{BASE_URL}}/taskpane.html"/>
+        <SourceLocation DefaultValue="https://arcenik86.github.io/email-inspector/taskpane.html"/>
         <RequestedHeight>450</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -102,13 +102,13 @@
 
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="{{BASE_URL}}/icon-16.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="{{BASE_URL}}/icon-32.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="{{BASE_URL}}/icon-80.png"/>
+        <bt:Image id="Icon.16x16" DefaultValue="https://arcenik86.github.io/email-inspector/icon-16.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="https://arcenik86.github.io/email-inspector/icon-32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="https://arcenik86.github.io/email-inspector/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Commands.Url" DefaultValue="{{BASE_URL}}/commands.html"/>
-        <bt:Url id="Taskpane.Url" DefaultValue="{{BASE_URL}}/taskpane.html"/>
+        <bt:Url id="Commands.Url" DefaultValue="https://arcenik86.github.io/email-inspector/commands.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://arcenik86.github.io/email-inspector/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="Email Inspector"/>
@@ -158,13 +158,13 @@
 
       <Resources>
         <bt:Images>
-          <bt:Image id="Icon.16x16" DefaultValue="{{BASE_URL}}/icon-16.png"/>
-          <bt:Image id="Icon.32x32" DefaultValue="{{BASE_URL}}/icon-32.png"/>
-          <bt:Image id="Icon.80x80" DefaultValue="{{BASE_URL}}/icon-80.png"/>
+          <bt:Image id="Icon.16x16" DefaultValue="https://arcenik86.github.io/email-inspector/icon-16.png"/>
+          <bt:Image id="Icon.32x32" DefaultValue="https://arcenik86.github.io/email-inspector/icon-32.png"/>
+          <bt:Image id="Icon.80x80" DefaultValue="https://arcenik86.github.io/email-inspector/icon-80.png"/>
         </bt:Images>
         <bt:Urls>
-          <bt:Url id="Commands.Url" DefaultValue="{{BASE_URL}}/commands.html"/>
-          <bt:Url id="Taskpane.Url" DefaultValue="{{BASE_URL}}/taskpane.html"/>
+          <bt:Url id="Commands.Url" DefaultValue="https://arcenik86.github.io/email-inspector/commands.html"/>
+          <bt:Url id="Taskpane.Url" DefaultValue="https://arcenik86.github.io/email-inspector/taskpane.html"/>
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="GroupLabel" DefaultValue="Email Inspector"/>
@@ -177,3 +177,4 @@
     </VersionOverrides>
   </VersionOverrides>
 </OfficeApp>
+
