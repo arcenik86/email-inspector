@@ -1,29 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--
-  Email Inspector — Deployment Manifest Template
+  Email Inspector — Manifest Template
 
-  DO NOT EDIT URLS IN THIS TEMPLATE.
+  ##############################################################
+  #  DO NOT EDIT URLS IN THIS TEMPLATE                          #
+  #  build.js renders three manifests from this single source:  #
+  #     deploy/manifest.xml          (production / GitHub Pages)#
+  #     deploy/manifest.debug.xml    (debug build, same host)   #
+  #     manifest.dev.xml             (local dev / sideload)     #
+  ##############################################################
 
-  Build-time substitution is performed by build.js, which reads the
-  target URL from package.json under "emailInspector":
+  Settings come from package.json under "emailInspector":
     {
       "emailInspector": {
-        "baseUrl":   "https://your-host.example.com/path",
-        "appDomain": "https://your-host.example.com"
+        "baseUrl":      "https://your-host.example.com/path",
+        "appDomain":    "https://your-host.example.com",
+        "devBaseUrl":   "https://localhost:3000",
+        "devAppDomain": "https://localhost:3000",
+        "ids": {
+          "production": "<guid>",
+          "debug":      "<guid>",
+          "dev":        "<guid>"
+        }
       }
     }
 
   Placeholders substituted automatically on every build:
-    https://arcenik86.github.io/email-inspector   → emailInspector.baseUrl    (full path OK)
-    https://arcenik86.github.io → emailInspector.appDomain  (scheme+host only — Outlook requires this)
-
-  The output lands at deploy/manifest.xml. If you need a one-off manual
-  substitution (e.g. for a different deployment target), run:
-    PowerShell: (Get-Content src/manifest.template.xml) `
-                -replace '\{\{BASE_URL\}\}','https://your-url-here' `
-                -replace '\{\{APP_DOMAIN\}\}','https://your-host' `
-                | Set-Content deploy/manifest.xml
+    PRODUCTION  → "PRODUCTION" | "DEBUG" | "DEV / LOCALHOST"
+    e1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6            → distinct GUID per target (so all three can coexist)
+    1.3.1       → from package.json "version"
+    https://arcenik86.github.io/email-inspector      → full URL with path (taskpane host root)
+    https://arcenik86.github.io    → scheme+host only — Outlook requires this for AppDomain
+    taskpane.html → "taskpane.html" or "taskpane-debug.html"
+    Email Inspector  → "Email Inspector" | "Email Inspector (DEBUG)" | "Email Inspector (DEV)"
 -->
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║  THIS IS THE PRODUCTION MANIFEST                          -->
+<!-- ║  Rendered by build.js from src/manifest.template.xml             -->
+<!-- ║  Edit the template, NOT this file — changes here will be lost.   -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
 <OfficeApp
   xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
