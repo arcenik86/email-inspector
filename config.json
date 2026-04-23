@@ -1,5 +1,5 @@
 {
-  "_comment": "Email Inspector v1.3.1 — Admin Configuration",
+  "_comment": "Email Inspector v1.3.2 — Admin Configuration",
   "_instructions": "Host this file alongside taskpane.html. All fields are optional — defaults are used for anything omitted.",
 
   "orgName": "",
