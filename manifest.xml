@@ -28,7 +28,12 @@
   Placeholders substituted automatically on every build:
     PRODUCTION  → "PRODUCTION" | "DEBUG" | "DEV / LOCALHOST"
     e1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6            → distinct GUID per target (so all three can coexist)
-    1.5.0       → from package.json "version"
+    1.5.3.0       → four-part n.n.n.n derived from package.json "version"
+                        (Outlook's manifest <Version> element, e.g. 1.5.3.0)
+    1.5.3 → semver from package.json "version" (e.g. 1.5.3), shown
+                        in the Description so it appears in Outlook's
+                        "Manage add-ins → Show details" pane, which renders the
+                        Description but has no dedicated version field
     https://arcenik86.github.io/email-inspector      → full URL with path (taskpane host root)
     https://arcenik86.github.io    → scheme+host only — Outlook requires this for AppDomain
     taskpane.html → "taskpane.html" or "taskpane-debug.html"
@@ -47,11 +52,11 @@
   xsi:type="MailApp">
 
   <Id>e1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6</Id>
-  <Version>1.5.0</Version>
+  <Version>1.5.3.0</Version>
   <ProviderName>Email Inspector</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Email Inspector"/>
-  <Description DefaultValue="Analyze email authentication (SPF, DKIM, DMARC, ARC) and detect suspicious indicators. A security tool and learning resource for end users."/>
+  <Description DefaultValue="Analyze email authentication (SPF, DKIM, DMARC, ARC) and detect suspicious indicators. A security tool and learning resource for end users. (Version 1.5.3)"/>
   <IconUrl DefaultValue="https://arcenik86.github.io/email-inspector/icon-64.png"/>
   <HighResolutionIconUrl DefaultValue="https://arcenik86.github.io/email-inspector/icon-128.png"/>
   <SupportUrl DefaultValue="https://arcenik86.github.io/email-inspector/taskpane.html"/>
