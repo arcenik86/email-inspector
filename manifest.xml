@@ -1,44 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<!--
-  Email Inspector — Manifest Template
-
-  ##############################################################
-  #  DO NOT EDIT URLS IN THIS TEMPLATE                          #
-  #  build.js renders three manifests from this single source:  #
-  #     deploy/manifest.xml          (production / GitHub Pages)#
-  #     deploy/manifest.debug.xml    (debug build, same host)   #
-  #     manifest.dev.xml             (local dev / sideload)     #
-  ##############################################################
-
-  Settings come from package.json under "emailInspector":
-    {
-      "emailInspector": {
-        "baseUrl":      "https://your-host.example.com/path",
-        "appDomain":    "https://your-host.example.com",
-        "devBaseUrl":   "https://localhost:3000",
-        "devAppDomain": "https://localhost:3000",
-        "ids": {
-          "production": "<guid>",
-          "debug":      "<guid>",
-          "dev":        "<guid>"
-        }
-      }
-    }
-
-  Placeholders substituted automatically on every build:
-    PRODUCTION  → "PRODUCTION" | "DEBUG" | "DEV / LOCALHOST"
-    e1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6            → distinct GUID per target (so all three can coexist)
-    1.5.3.0       → four-part n.n.n.n derived from package.json "version"
-                        (Outlook's manifest <Version> element, e.g. 1.5.3.0)
-    1.5.3 → semver from package.json "version" (e.g. 1.5.3), shown
-                        in the Description so it appears in Outlook's
-                        "Manage add-ins → Show details" pane, which renders the
-                        Description but has no dedicated version field
-    https://arcenik86.github.io/email-inspector      → full URL with path (taskpane host root)
-    https://arcenik86.github.io    → scheme+host only — Outlook requires this for AppDomain
-    taskpane.html → "taskpane.html" or "taskpane-debug.html"
-    Email Inspector  → "Email Inspector" | "Email Inspector (DEBUG)" | "Email Inspector (DEV)"
--->
 <!-- ╔══════════════════════════════════════════════════════════════╗ -->
 <!-- ║  THIS IS THE PRODUCTION MANIFEST                          -->
 <!-- ║  Rendered by build.js from src/manifest.template.xml             -->
@@ -52,11 +12,11 @@
   xsi:type="MailApp">
 
   <Id>e1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6</Id>
-  <Version>1.5.3.0</Version>
+  <Version>1.5.4.0</Version>
   <ProviderName>Email Inspector</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Email Inspector"/>
-  <Description DefaultValue="Analyze email authentication (SPF, DKIM, DMARC, ARC) and detect suspicious indicators. A security tool and learning resource for end users. (Version 1.5.3)"/>
+  <Description DefaultValue="Analyze email authentication (SPF, DKIM, DMARC, ARC) and detect suspicious indicators. A security tool and learning resource for end users. (Version 1.5.4)"/>
   <IconUrl DefaultValue="https://arcenik86.github.io/email-inspector/icon-64.png"/>
   <HighResolutionIconUrl DefaultValue="https://arcenik86.github.io/email-inspector/icon-128.png"/>
   <SupportUrl DefaultValue="https://arcenik86.github.io/email-inspector/taskpane.html"/>
@@ -78,7 +38,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://arcenik86.github.io/email-inspector/taskpane.html"/>
+        <SourceLocation DefaultValue="https://arcenik86.github.io/email-inspector/taskpane.html?v=1.5.4"/>
         <RequestedHeight>450</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -138,7 +98,7 @@
       </bt:Images>
       <bt:Urls>
         <bt:Url id="Commands.Url" DefaultValue="https://arcenik86.github.io/email-inspector/commands.html"/>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://arcenik86.github.io/email-inspector/taskpane.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://arcenik86.github.io/email-inspector/taskpane.html?v=1.5.4"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="Email Inspector"/>
@@ -194,7 +154,7 @@
         </bt:Images>
         <bt:Urls>
           <bt:Url id="Commands.Url" DefaultValue="https://arcenik86.github.io/email-inspector/commands.html"/>
-          <bt:Url id="Taskpane.Url" DefaultValue="https://arcenik86.github.io/email-inspector/taskpane.html"/>
+          <bt:Url id="Taskpane.Url" DefaultValue="https://arcenik86.github.io/email-inspector/taskpane.html?v=1.5.4"/>
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="GroupLabel" DefaultValue="Email Inspector"/>
